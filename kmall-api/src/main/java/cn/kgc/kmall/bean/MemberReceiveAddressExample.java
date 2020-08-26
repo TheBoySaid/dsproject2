@@ -1,9 +1,10 @@
 package cn.kgc.kmall.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberReceiveAddressExample {
+public class MemberReceiveAddressExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;
