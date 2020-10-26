@@ -9,4 +9,6 @@ public interface SpuService {
     List<PmsProductInfo> spuList(Long catalog3Id);
 
     List<PmsBaseSaleAttr> baseSaleAttrList();
+
+    void saveSpuInfo(PmsProductInfo pmsProductInfo);
 }

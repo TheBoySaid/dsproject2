@@ -193,4 +193,11 @@
       sale_attr_value_name = #{saleAttrValueName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <insert id="insertBatch">
+    insert into pms_product_sale_attr_value (product_id,sale_attr_id,sale_attr_value_name) values
+    <foreach collection="spuSaleAttrValueList" item="item" separator=",">
+      (#{spuId},#{item.saleAttrId},#{item.saleAttrValueName})
+    </foreach>
+  </insert>
 </mapper>

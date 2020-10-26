@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.kgc.kmall</groupId>
-            <artifactId>kmall-commons-util</artifactId>
+            <artifactId>kmall-web-util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

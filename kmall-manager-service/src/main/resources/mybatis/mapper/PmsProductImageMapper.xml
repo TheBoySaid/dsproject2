@@ -193,4 +193,11 @@
       img_url = #{imgUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <insert id="insertBatch">
+    insert into pms_product_image (product_id, img_name, img_url) values
+    <foreach collection="spuImageList" item="item" separator=",">
+      (#{spuId},#{item.imgName},#{item.imgUrl})
+    </foreach>
+  </insert>
 </mapper>

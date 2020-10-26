@@ -28,4 +28,6 @@ public interface PmsProductSaleAttrValueMapper {
     int updateByPrimaryKeySelective(PmsProductSaleAttrValue record);
 
     int updateByPrimaryKey(PmsProductSaleAttrValue record);
+
+    int insertBatch(@Param("spuId") Long spuId, @Param("spuSaleAttrValueList") List<PmsProductSaleAttrValue> spuSaleAttrValueList);
 }
