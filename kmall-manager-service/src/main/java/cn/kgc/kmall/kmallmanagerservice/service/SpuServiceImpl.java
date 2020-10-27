@@ -1,8 +1,6 @@
 package cn.kgc.kmall.kmallmanagerservice.service;
 
-import cn.kgc.kmall.bean.PmsBaseSaleAttr;
-import cn.kgc.kmall.bean.PmsProductInfo;
-import cn.kgc.kmall.bean.PmsProductInfoExample;
+import cn.kgc.kmall.bean.*;
 import cn.kgc.kmall.kmallmanagerservice.mapper.*;
 import cn.kgc.kmall.service.SpuService;
 import org.apache.dubbo.config.annotation.Service;
@@ -48,6 +46,32 @@ public class SpuServiceImpl implements SpuService {
         for (int i = 0; i < pmsProductInfo.getSpuSaleAttrList().size(); i++) {
             pmsProductSaleAttrValueMapper.insertBatch(spuId, pmsProductInfo.getSpuSaleAttrList().get(i).getSpuSaleAttrValueList());
         }
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrList(Long spuId) {
+        PmsProductSaleAttrExample example = new PmsProductSaleAttrExample();
+        PmsProductSaleAttrExample.Criteria criteria = example.createCriteria();
+        criteria.andProductIdEqualTo(spuId);
+        List<PmsProductSaleAttr> list = pmsProductSaleAttrMapper.selectByExample(example);
+        if (list != null && list.size() > 0) {
+            for (int i = 0; list.size() > i; i++) {
+                PmsProductSaleAttrValueExample valueExample = new PmsProductSaleAttrValueExample();
+                PmsProductSaleAttrValueExample.Criteria vCriteria = valueExample.createCriteria();
+                vCriteria.andSaleAttrIdEqualTo(list.get(i).getSaleAttrId());
+                vCriteria.andProductIdEqualTo(spuId);
+                list.get(i).setSpuSaleAttrValueList(pmsProductSaleAttrValueMapper.selectByExample(valueExample));
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<PmsProductImage> spuImageList(Long spuId) {
+        PmsProductImageExample example = new PmsProductImageExample();
+        PmsProductImageExample.Criteria criteria = example.createCriteria();
+        criteria.andProductIdEqualTo(spuId);
+        return pmsProductImageMapper.selectByExample(example);
     }
 
 }
