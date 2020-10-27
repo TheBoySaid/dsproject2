@@ -6,7 +6,7 @@ import java.util.List;
 public class PmsSkuInfo implements Serializable {
     private Long id;
 
-    private Long productId;
+    private Long spuId;
 
     private Double price;
 
@@ -60,12 +60,12 @@ public class PmsSkuInfo implements Serializable {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Long getSpuId() {
+        return spuId;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void SpuId(Long spuId) {
+        this.spuId = spuId;
     }
 
     public Double getPrice() {
