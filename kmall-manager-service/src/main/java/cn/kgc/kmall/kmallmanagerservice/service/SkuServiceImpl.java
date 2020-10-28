@@ -12,6 +12,8 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class SkuServiceImpl implements SkuService {
     @Autowired
@@ -34,4 +36,15 @@ public class SkuServiceImpl implements SkuService {
             i = pmsSkuSaleAttrValueMapper.insertBatch(skuInfo.getSkuSaleAttrValueList(), skuInfo.getId());
         }
     }
+
+    @Override
+    public PmsSkuInfo selectBySkuId(Long id) {
+        return pmsSkuInfoMapper.selectBySpuId(id);
+    }
+
+    @Override
+    public List<PmsSkuInfo> selectSkuBySpuId(Long spuId) {
+        return pmsSkuInfoMapper.selectSkuBySpuId(spuId);
+    }
+
 }

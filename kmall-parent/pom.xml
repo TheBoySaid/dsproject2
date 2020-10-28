@@ -27,6 +27,7 @@
         <dubbo.dependencies.zookeeper.version>2.7.1</dubbo.dependencies.zookeeper.version>
         <fastdfs-client-java.version>1.29-SNAPSHOT</fastdfs-client-java.version>
         <commons-io.version>2.6</commons-io.version>
+        <fastjson.version>1.2.46</fastjson.version>
 
     </properties>
 
@@ -63,6 +64,12 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
 
 
         </dependencies>

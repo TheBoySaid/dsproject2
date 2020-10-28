@@ -28,4 +28,8 @@ public interface PmsSkuInfoMapper {
     int updateByPrimaryKeySelective(PmsSkuInfo record);
 
     int updateByPrimaryKey(PmsSkuInfo record);
+
+    PmsSkuInfo selectBySpuId(@Param("id") Long id);
+
+    List<PmsSkuInfo> selectSkuBySpuId(@Param("spuId") Long spuId);
 }

@@ -74,4 +74,9 @@ public class SpuServiceImpl implements SpuService {
         return pmsProductImageMapper.selectByExample(example);
     }
 
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrListIsCheck(Long spuId, Long skuId) {
+        return pmsProductSaleAttrMapper.spuSaleAttrListIsCheck(spuId, skuId);
+    }
+
 }
