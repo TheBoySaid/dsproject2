@@ -1,4 +1,4 @@
-package cn.kgc.kmall.kmallmanagerservice;
+package cn.kgc.kmall;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;

@@ -28,30 +28,6 @@ public class PmsSkuInfo implements Serializable {
 
     private List<PmsSkuSaleAttrValue> skuSaleAttrValueList;
 
-    public List<PmsSkuAttrValue> getSkuAttrValueList() {
-        return skuAttrValueList;
-    }
-
-    public void setSkuAttrValueList(List<PmsSkuAttrValue> skuAttrValueList) {
-        this.skuAttrValueList = skuAttrValueList;
-    }
-
-    public List<PmsSkuImage> getSkuImageList() {
-        return skuImageList;
-    }
-
-    public void setSkuImageList(List<PmsSkuImage> skuImageList) {
-        this.skuImageList = skuImageList;
-    }
-
-    public List<PmsSkuSaleAttrValue> getSkuSaleAttrValueList() {
-        return skuSaleAttrValueList;
-    }
-
-    public void setSkuSaleAttrValueList(List<PmsSkuSaleAttrValue> skuSaleAttrValueList) {
-        this.skuSaleAttrValueList = skuSaleAttrValueList;
-    }
-
     public Long getId() {
         return id;
     }
@@ -64,7 +40,7 @@ public class PmsSkuInfo implements Serializable {
         return spuId;
     }
 
-    public void SpuId(Long spuId) {
+    public void setSpuId(Long spuId) {
         this.spuId = spuId;
     }
 
@@ -81,7 +57,7 @@ public class PmsSkuInfo implements Serializable {
     }
 
     public void setSkuName(String skuName) {
-        this.skuName = skuName == null ? null : skuName.trim();
+        this.skuName = skuName;
     }
 
     public String getSkuDesc() {
@@ -89,7 +65,7 @@ public class PmsSkuInfo implements Serializable {
     }
 
     public void setSkuDesc(String skuDesc) {
-        this.skuDesc = skuDesc == null ? null : skuDesc.trim();
+        this.skuDesc = skuDesc;
     }
 
     public Double getWeight() {
@@ -123,4 +99,29 @@ public class PmsSkuInfo implements Serializable {
     public void setSkuDefaultImg(String skuDefaultImg) {
         this.skuDefaultImg = skuDefaultImg == null ? null : skuDefaultImg.trim();
     }
+
+    public List<PmsSkuAttrValue> getSkuAttrValueList() {
+        return skuAttrValueList;
+    }
+
+    public void setSkuAttrValueList(List<PmsSkuAttrValue> skuAttrValueList) {
+        this.skuAttrValueList = skuAttrValueList;
+    }
+
+    public List<PmsSkuImage> getSkuImageList() {
+        return skuImageList;
+    }
+
+    public void setSkuImageList(List<PmsSkuImage> skuImageList) {
+        this.skuImageList = skuImageList;
+    }
+
+    public List<PmsSkuSaleAttrValue> getSkuSaleAttrValueList() {
+        return skuSaleAttrValueList;
+    }
+
+    public void setSkuSaleAttrValueList(List<PmsSkuSaleAttrValue> skuSaleAttrValueList) {
+        this.skuSaleAttrValueList = skuSaleAttrValueList;
+    }
+
 }
