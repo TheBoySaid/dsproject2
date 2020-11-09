@@ -29,6 +29,8 @@
         <commons-io.version>2.6</commons-io.version>
         <fastjson.version>1.2.46</fastjson.version>
         <jedis.version>2.9.0</jedis.version>
+        <jest.version>5.3.4</jest.version>
+        <elasticsearch-rest-high-level-client.version>6.2.3</elasticsearch-rest-high-level-client.version>
     </properties>
 
     <dependencyManagement>
@@ -74,7 +76,16 @@
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>io.searchbox</groupId>
+                <artifactId>jest</artifactId>
+                <version>${jest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch-rest-high-level-client.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

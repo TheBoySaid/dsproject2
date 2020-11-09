@@ -10,4 +10,6 @@ public interface SkuService {
     PmsSkuInfo selectBySkuId(Long id);
 
     List<PmsSkuInfo> selectSkuBySpuId(Long spuId);
+
+    List<PmsSkuInfo> getAll();
 }

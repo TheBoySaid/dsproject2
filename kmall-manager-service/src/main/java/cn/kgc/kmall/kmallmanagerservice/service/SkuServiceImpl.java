@@ -1,6 +1,7 @@
 package cn.kgc.kmall.kmallmanagerservice.service;
 
 import cn.kgc.kmall.bean.PmsSkuAttrValue;
+import cn.kgc.kmall.bean.PmsSkuAttrValueExample;
 import cn.kgc.kmall.bean.PmsSkuImage;
 import cn.kgc.kmall.bean.PmsSkuInfo;
 import cn.kgc.kmall.kmallmanagerservice.mapper.PmsSkuAttrValueMapper;
@@ -92,6 +93,19 @@ public class SkuServiceImpl implements SkuService {
     @Override
     public List<PmsSkuInfo> selectSkuBySpuId(Long spuId) {
         return pmsSkuInfoMapper.selectSkuBySpuId(spuId);
+    }
+
+    @Override
+    public List<PmsSkuInfo> getAll() {
+        List<PmsSkuInfo> pmsSkuInfos = pmsSkuInfoMapper.selectByExample(null);
+        for (PmsSkuInfo item : pmsSkuInfos) {
+            PmsSkuAttrValueExample pmsSkuAttrValueExample = new PmsSkuAttrValueExample();
+            PmsSkuAttrValueExample.Criteria criteria = pmsSkuAttrValueExample.createCriteria();
+            criteria.andSkuIdEqualTo(item.getId());
+            List<PmsSkuAttrValue> pmsSkuAttrValues = pmsSkuAttrValueMapper.selectByExample(pmsSkuAttrValueExample);
+            item.setSkuAttrValueList(pmsSkuAttrValues);
+        }
+        return pmsSkuInfos;
     }
 
 }
