@@ -7,10 +7,12 @@ import cn.kgc.kmall.bean.PmsBaseAttrValueExample;
 import cn.kgc.kmall.kmallmanagerservice.mapper.PmsBaseAttrInfoMapper;
 import cn.kgc.kmall.kmallmanagerservice.mapper.PmsBaseAttrValueMapper;
 import cn.kgc.kmall.service.AttrService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AttrServiceImpl implements AttrService {
@@ -59,6 +61,15 @@ public class AttrServiceImpl implements AttrService {
             i = pmsBaseAttrValueMapper.insertBatch(pmsBaseAttrInfo.getId(), pmsBaseAttrInfo.getAttrValueList());
         }
         return i;
+    }
+
+    @Override
+    public List<PmsBaseAttrInfo> selectAttrInfoValueListByValueId(Set<Long> valueIds) {
+        String join = StringUtils.join(valueIds);
+        join = join.substring(1, join.length() - 1);
+        System.out.println(join);
+        List<PmsBaseAttrInfo> list = pmsBaseAttrInfoMapper.selectAttrInfoValueListByValueId(join);
+        return list;
     }
 
 }

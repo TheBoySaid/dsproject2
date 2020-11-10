@@ -4,6 +4,7 @@ import cn.kgc.kmall.bean.PmsBaseAttrInfo;
 import cn.kgc.kmall.bean.PmsBaseAttrValue;
 
 import java.util.List;
+import java.util.Set;
 
 public interface AttrService {
     List<PmsBaseAttrInfo> attrInfoList(Long catalog3Id);
@@ -11,4 +12,6 @@ public interface AttrService {
     List<PmsBaseAttrValue> getAttrValueList(Long attrId);
 
     Integer saveAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo);
+
+    List<PmsBaseAttrInfo> selectAttrInfoValueListByValueId(Set<Long> valueIds);
 }
