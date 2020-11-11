@@ -30,16 +30,16 @@ public class SearchServiceImpl implements SearchService {
         List<PmsSearchSkuInfo> list = new ArrayList<>();
         String catalog3Id = pmsSearchSkuParam.getCatalog3Id();
         String keyword = pmsSearchSkuParam.getKeyword();
-        List<PmsSkuAttrValue> pmsSkuAttrValueList = pmsSearchSkuParam.getSkuAttrValueList();
+        String[] valueIds = pmsSearchSkuParam.getValueId();
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
         if (catalog3Id != null) {
             TermQueryBuilder termQueryBuilder = new TermQueryBuilder("catalog3Id", catalog3Id);
             boolQueryBuilder.filter(termQueryBuilder);
         }
-        if (pmsSkuAttrValueList != null) {
-            for (PmsSkuAttrValue item : pmsSkuAttrValueList) {
-                TermQueryBuilder termQueryBuilder = new TermQueryBuilder("skuAttrValueList.valueId",item.getValueId());
+        if (valueIds != null) {
+            for (String item : valueIds) {
+                TermQueryBuilder termQueryBuilder = new TermQueryBuilder("skuAttrValueList.valueId",item);
                 boolQueryBuilder.filter(termQueryBuilder);
             }
         }
